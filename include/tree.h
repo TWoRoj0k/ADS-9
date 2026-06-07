@@ -8,7 +8,7 @@
 struct PMNode {
     char value;
     std::vector<PMNode*> children;
-    PMNode(char v) : value(v) {}
+    explicit PMNode(char v) : value(v) {}
 };
 
 class PMTree {
@@ -41,7 +41,7 @@ class PMTree {
     }
 
  public:
-    PMTree(std::vector<char> input) : root(nullptr), original(input) {
+    explicit PMTree(std::vector<char> input) : root(nullptr), original(input) {
         std::sort(original.begin(), original.end());
         root = new PMNode(0);
         std::vector<char> empty;
